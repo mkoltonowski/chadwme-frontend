@@ -1,0 +1,8 @@
+#UserMessage-page{
+    display:flex;
+    float:right;
+    flex-flow: column wrap;
+    width: 70vw;
+    min-height: 100vh;
+    background-color: #484b52;
+}

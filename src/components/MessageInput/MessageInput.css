@@ -1,0 +1,28 @@
+.message-input-box{
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    background-color: #191a1dc7;
+    border-radius:  20vh 20vh 0vh 0;
+    width: 70%;
+    height: 5vh;
+    position:fixed;
+    bottom:0%;
+}
+#message-input-text{
+    font-size: 15px;
+    width:20%;
+    height: 80%;
+    align-self: center;
+    padding-left:2vw;
+    border-radius: 2vh;
+    background-color: #e2e2e2c9;
+    transition: width 500ms ease-in;
+    outline: none;
+    border: 0;
+    
+}
+#message-input-text:focus{
+    width: 80%;
+    
+}
