@@ -1,6 +1,7 @@
 import MessageBox from '../components/MessageBox/MessageBox';
 import MessageInput from '../components/MessageInput/MessageInput';
 import { useEffect, useState,useRef } from 'react';
+import myWebSocket from '../hooks/useWebsocket';
 import './UserMessage.css';
 
 /**
@@ -23,23 +24,22 @@ const  UserMessage = (prop)=>{
         quantity: 0
     });
 
+    const socket = useRef(null);
+
     /**
      * Websocket Handler
      */
-
-    const ws = useRef(null);
     useEffect(()=>{
-        ws.current = new WebSocket("ws://localhost:3001/websockets");
-    
-        ws.current.onopen = (event) => {
-            console.log(`::Connected to WebSocket::`);
-        };
+
+        socket.current = new myWebSocket("ws://localhost:3001/websockets");
+        socket.current.start();
+
 
         /**
          * Get new messages
          * @param {*} event 
          */
-        ws.current.onmessage = (event)=>{
+         socket.current.client.onmessage = (event)=>{
             
             const newMessage = JSON.parse(event.data)
             setChat(prevState=>({
@@ -62,7 +62,7 @@ const  UserMessage = (prop)=>{
         
 
         if(event.key === 'Enter' && message !== ""){
-            ws.current.send(JSON.stringify(message))
+            socket.current.client.send(JSON.stringify(message))
             event.target.value = '';
         }
     }
