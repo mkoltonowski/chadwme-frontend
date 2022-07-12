@@ -1,7 +1,7 @@
-import MessageBox from '../components/MessageBox/MessageBox';
-import MessageInput from '../components/MessageInput/MessageInput';
+import MessageBox from '../../components/MessageBox/MessageBox';
+import MessageInput from '../../components/MessageInput/MessageInput';
 import { useEffect, useState,useRef } from 'react';
-import myWebSocket from '../hooks/useWebsocket';
+import myWebSocket from '../../hooks/useWebsocket';
 import './UserMessage.css';
 
 /**
