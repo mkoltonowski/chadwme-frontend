@@ -1,6 +1,6 @@
 import MessageBox from '../../components/MessageBox/MessageBox';
 import MessageInput from '../../components/MessageInput/MessageInput';
-import { useEffect, useState,useRef } from 'react';
+import { useEffect, useState,useRef} from 'react';
 import myWebSocket from '../../hooks/useWebsocket';
 import './UserMessage.css';
 
@@ -45,8 +45,8 @@ const  UserMessage = (prop)=>{
      * Websocket Handler
      */
     useEffect(()=>{
-
-        socket.current = new myWebSocket("ws://217.182.74.31/websockets");
+        console.log(process.env.REACT_APP_WEBSOCKET_URL)
+        socket.current = new myWebSocket(process.env.REACT_APP_WEBSOCKET_URL);
         socket.current.start();
 
         //keep alive
@@ -80,7 +80,7 @@ const  UserMessage = (prop)=>{
         }
         
 
-        if(event.key === 'Enter' && message !== ""){
+        if(event.key === 'Enter' && message.messageContent !== ""){
             socket.current.client.send(JSON.stringify(message))
             event.target.value = '';
         }

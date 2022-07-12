@@ -7,7 +7,8 @@
     margin-left: 0.5vw;
     margin-bottom: 1vh;
     border-radius:   0 5vw 5vh 5vw ;
-    padding: 1.5vh 2vw;
+    padding: 2.5vh 2vw;
+    padding-bottom: 3%;
     
     background-color: rgba(196, 255, 255, 0.932);
     box-shadow: 0.001vh 0.004vw 0.8vw 0.27vw #0505053d;

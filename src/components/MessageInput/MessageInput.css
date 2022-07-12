@@ -2,8 +2,9 @@
     display: flex;
     justify-self: center;
     justify-content: center;
-    background-color: #191a1dc7;
+    background-color: #636363c7;
     border-radius:  5vh 0vh 0vh 0;
+    box-shadow: 0 0 10px 0.4px rgba(19, 4, 4,0.5) inset;
     width: 70%;
     height: 10vh;
     position:fixed;
