@@ -27,13 +27,30 @@ const  UserMessage = (prop)=>{
     const socket = useRef(null);
 
     /**
+     * Keep alive connection
+     */
+    const __refreshView = async()=>{
+
+        const ping = {
+            test: 'ping',
+        }
+
+        while(true){
+            await new Promise(resolve => setTimeout(resolve, 2000));
+            await socket.current.client.send(JSON.stringify(ping))
+        }
+    }
+
+    /**
      * Websocket Handler
      */
     useEffect(()=>{
 
-        socket.current = new myWebSocket("ws://localhost:3001/websockets");
+        socket.current = new myWebSocket("ws://217.182.74.31/websockets");
         socket.current.start();
 
+        //keep alive
+        __refreshView();
 
         /**
          * Get new messages
@@ -41,12 +58,14 @@ const  UserMessage = (prop)=>{
          */
          socket.current.client.onmessage = (event)=>{
             
-            const newMessage = JSON.parse(event.data)
-            setChat(prevState=>({
-                messages: [...prevState.messages,newMessage.messageContent] ,
-                quantity: prevState.quantity +1
-            }));
+            const newMessage = JSON.parse(event.data);
 
+            if (newMessage.messageContent){
+                setChat(prevState=>({
+                    messages: [...prevState.messages,newMessage.messageContent] ,
+                    quantity: prevState.quantity +1
+                }));
+            }
         } 
     },[])
 

@@ -1,8 +1,11 @@
 #UserMessage-page{
     display:flex;
     float:right;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     width: 70vw;
-    min-height: 100vh;
+    height: 90vh;
     background-color: #484b52;
+    border-radius: 0vh 0 0vh 5vh ;
+    scroll-behavior:smooth;
+    overflow-y: scroll;
 }

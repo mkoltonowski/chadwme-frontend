@@ -3,7 +3,9 @@
     display: inline-flex;
     font-size: 15px;
     font-weight: 590;
-    margin-top: 1vh;
+    margin-top: 0.5vh;
+    margin-left: 0.5vw;
+    margin-bottom: 1vh;
     border-radius:   0 5vw 5vh 5vw ;
     padding: 1.5vh 2vw;
     
@@ -18,4 +20,13 @@
 .message-box > label{
     overflow-y: auto;
     overflow-x: auto;
+}
+
+.message-box-self{
+    justify-self: right;
+    margin-right: 1vh;
+    margin-left: 70vh;
+    direction: ltr;
+    width: auto;
+    border-radius: 5vh 5vw 0vh 5vw;
 }

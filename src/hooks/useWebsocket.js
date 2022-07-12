@@ -7,8 +7,11 @@ export default class myWebSocket{
         this.reconnect = true;
     }
 
-    Connect(url){
-        this.client = new WebSocket(url);
+    Connect(){
+        if(this.isConnected){
+            return;
+        }
+        this.client = new WebSocket(this._url);
     }
 
     Disconnect(){
@@ -19,7 +22,7 @@ export default class myWebSocket{
     start(){
         
         try{ 
-            this.Connect(this._url); 
+            this.Connect(); 
             this.isConnected = true;
         }
         catch(e){ 
@@ -42,7 +45,7 @@ export default class myWebSocket{
 
             console.log('Server disconnected - reconnecting');
 
-            setTimeout(this.start, 500);
+            setTimeout(this.Connect(), 500);
         }
 
     }
