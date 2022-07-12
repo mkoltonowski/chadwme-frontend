@@ -10,7 +10,7 @@ import Header from './components/Header/Header';
 function App() {
 
   const MenuLocations = [
-    {path: '/home', linkName: 'Home'},
+    {path: '/home', linkName: 'Strona główna'},
     {path: '/userMessages', linkName: 'Wiadomości'},
   ];
 
